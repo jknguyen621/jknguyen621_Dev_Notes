@@ -1,0 +1,74 @@
+//WebSocket Server, Client, Unit Test in JAVA:
+
+http://www.adam-bien.com/roller/abien/entry/java_ee_7_accessing_websockets
+
+http://www.adam-bien.com/roller/abien/entry/java_websockets_client
+
+WebSocket testing using Jmeter, with JAVA Test client:
+http://prasenjitdas235.blogspot.com/2014/03/websocket-load-testing-with-jmeter.html
+
+Portable Websockets Application & Client Using JAVA:
+https://jfarcand.wordpress.com/2012/05/28/writing-portable-websockets-application-using-java/
+
+
+
+//mySQL
+
+sudo stop mysql
+sudo start mysql
+
+//TestLink:
+/var/testlink
+
+apache2:
+/etc/apache2
+
+TestLink DB login: testlink/testlink
+MySQL: root/root
+
+config file: /var/testlink/config.inc.php
+sudo service apache2 stop/start/restart
+Backup Mysql DB:
+mysqldump -u username -p database_to_backup > backup_name.sql
+mysqldump -u root -p testlink > backup_testlink.sql  //password: root
+Restore:
+Restoring
+To restore a database dump created with mysqldump, you simply have to redirect the file into MySQL again.
+We need to create a blank database to house the imported data. First, log into MySQL by typing:
+mysql -u username -p
+Create a new database which will hold all of the data from the data dump and then exit out of the MySQL prompt:
+CREATE DATABASE database_name;
+exit
+Next, we can redirect the dump file into our newly created database by issuing the following command:
+mysql -u username -p database_name < backup_name.sql
+
+
+//Jenkins:
+
+ 
+
+/etc/init.d/jenkins  sudo ./jenkins start/stop
+
+ 
+Branch: */master 
+
+Shell: /usr/local/bin/nosetests -s functionalTests.py --with-xunit
+
+Test Report: **/nosetests.xml
+
+ 
+  
+//To automatically enter SSH Passphrase:
+$ exec ssh-agent bash
+$ ssh-add
+Enter passphrase for ~/.ssh/id_rsa: 
+ 
+//To get current Java JVM’s heap size, etc…:
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize’
+ 
+//create ssh pub key on the Jenkins server as a jenkins user, then add it to SSH key under settings under your user on GitHub:
+https://gist.github.com/misterbrownlee/3708738
+to add Jenkins pub key to GitHub under same user and testing for it
+ 
+
+
