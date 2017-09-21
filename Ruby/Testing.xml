@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<address>
+<name>
+	<given>Mondo</given>
+	<family>Mangrove</family>
+</name>
+<street>1234 Main St.</street>
+<city>Milpitas</city>
+<state>California</state>
+<country>USA</country>
+</address>

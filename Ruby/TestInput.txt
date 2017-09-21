@@ -1,0 +1,6 @@
+Amy|1234 Main St., Milpitas, CA. 95035
+Annika|3456 E. Palo Alto, LA. 95210
+Alisa|6789 Monkey Island, PA. 05693
+Chori|1982 Sumkumvit Bangkok, TH. 012345
+Jessy|38443 Rose Way, SJ. 95127
+
