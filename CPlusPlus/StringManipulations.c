@@ -142,7 +142,6 @@ int main(void)
        
 	
 	printf ("My String After Reversing by word is: \"%s\" \n", outputString2);
-	//char inputString2[] = "Stick it where the sun don't shine!";
 
 	
 }
