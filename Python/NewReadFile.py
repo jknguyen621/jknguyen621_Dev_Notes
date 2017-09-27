@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-listWorsd = []
 myDict = {}
-
 with open("../Utils/76-0.txt") as inputFile:
    for line in inputFile:
 	listWords = line.split(" ")
