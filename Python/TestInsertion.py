@@ -10,18 +10,16 @@
 
 
 def findIndex(listIn, indexInput):
-    myDict = {}
-    for index in range(len(listIn)):
-        myDict[index] = listIn[index]
 
     #print myDict
-
+    #Handle the boundaries first
     if indexInput not in listIn:
         if indexInput < listIn[0]:
             return 0;
         elif indexInput > listIn[-1]:
             return len(listIn)
 
+    #The logic
     for i in range(len(listIn)):
         if indexInput == listIn[i]:
             return i
