@@ -1,10 +1,25 @@
 Stack Buffer Overflow/Stack Smashing:
-stack buffer overrun occurs when a program writes to a memory address on the program's call stack outside of the intended data structure, which is usually a fixed-length buffer.[1][2] Stack buffer overflow bugs are caused when a program writes more data to a buffer located on the stack than what is actually allocated for that buffer. This almost always results in corruption of adjacent data on the stack, and in cases where the overflow was triggered by mistake, will often cause the program to crash or operate incorrectly.Stack buffer overflow is a type of the more general programming malfunction known as buffer overflow (or buffer overrun).[1] Overfilling a buffer on the stack is more likely to derail program execution than overfilling a buffer on the heap because the stack contains the return addresses for all active function calls.
+=====================================
 
-Stack buffer overflow can be caused deliberately as part of an attack known as stack smashing. If the affected program is running with special privileges, or accepts data from untrusted network hosts (e.g. a webserver) then the bug is a potential security vulnerability. If the stack buffer is filled with data supplied from an untrusted user then that user can corrupt the stack in such a way as to inject executable code into the running program and take control of the process. This is one of the oldest and more reliable methods for attackers to gain unauthorized access to a computer.[3][4][5]
+Stack buffer overrun occurs when a program writes to a memory address on the program's call stack outside of the
+intended data structure, which is usually a fixed-length buffer.  Stack buffer overflow bugs are caused when a
+program writes more data to a buffer located on the stack than what is actually allocated for that buffer. This almost
+always results in corruption of adjacent data on the stack, and in cases where the overflow was triggered by mistake,
+will often cause the program to crash or operate incorrectly. Stack buffer overflow is a type of the more general
+programming malfunction known as buffer overflow (or buffer overrun). Overfilling a buffer on the stack is more
+likely to derail program execution than overfilling a buffer on the heap because the stack contains the return addresses
+for all active function calls.
+
+Stack buffer overflow can be caused deliberately as part of an attack known as stack smashing. If the affected program
+is running with special privileges, or accepts data from untrusted network hosts (e.g. a webserver) then the bug is a
+potential security vulnerability. If the stack buffer is filled with data supplied from an untrusted user then that
+user can corrupt the stack in such a way as to inject executable code into the running program and take control of the
+process. This is one of the oldest and more reliable methods for attackers to gain unauthorized access to a computer.
 
 
-ie.  Calling the following program on the command line and passing in an argument greater than 12 characters will overflow the stack:
+ie.  Calling the following program on the command line and passing in an argument greater than 12 characters will
+overflow the stack, thus corrupt the return address to the function foo which called the command strcpy():
+
 
 #include <string.h>
 
@@ -31,13 +46,17 @@ heap,
 stack, 
 code, 
 
-where do global variables, static variables, constant data types, local variables (defined and declared in functions), variables (in main function), pointers, and dynamically allocated space (using malloc and calloc) get stored in memory?
+where do global variables, static variables, constant data types, local variables (defined and declared in functions),
+variables (in main function), pointers, and dynamically allocated space (using malloc and calloc) get stored in memory?
 
 Correct Answers:
+================
 1. Global variables -------> data
 2. Static variables -------> data
-3. Constant data types -----> code and/or data. Consider string literals for a situation when a constant itself would be stored in the data segment, and references to it would be embedded in the code
+3. Constant data types -----> code and/or data. Consider string literals for a situation when a constant itself would
+   be stored in the data segment, and references to it would be embedded in the code
 4. Local variables (declared and defined in functions) --------> stack
 5. Variables declared and defined in main function -----> stack
-6. Pointers (for example, char *arr, int *arr) -------> data or stack, depending on the context. C lets you declare a global or a static pointer, in which case the pointer itself would end up in the data segment.
+6. Pointers (for example, char *arr, int *arr) -------> data or stack, depending on the context. C lets you declare a
+   global or a static pointer, in which case the pointer itself would end up in the data segment.
 7. Dynamically allocated space (using malloc and calloc) --------> heap
