@@ -18,7 +18,7 @@ def search2(keyword, filename):
 
 #Executing search via generator
 print "\nWill be calling search with generator and yield, uses less  memory...."
-for x in search('Python', "/Users/jknguyen/myGitRepo/Python/largeText.txt"):
+for x in search('Python', "largeText.txt"):
     print x
 
 #Executing it via a lists, not using generator
