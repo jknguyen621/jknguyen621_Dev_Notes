@@ -1,0 +1,327 @@
+
+
+ Python Central Logo
+ Tips & Tricks
+ How Tos
+ Libraries 
+ Tutorials 
+ Recipes 
+ Tools
+ API
+ About 
+
+HomePython Library TutorialsPython generators and the yield keyword
+Python generators and the yield keyword
+Published: Thursday 24th January 2013 
+Last Updated: Sunday 2nd February 2014
+
+
+
+At a glance, the yield statement is used to define generators, replacing the return of a function to provide a result to its caller without destroying local variables. Unlike a function, where on each call it starts with new set of variables, a generator will resume the execution where it was left off.
+
+About Python Generators
+Since the yield keyword is only used with generators, it makes sense to recall the concept of generators first.
+
+The idea of generators is to calculate a series of results one-by-one on demand (on the fly). In the simplest case, a generator can be used as a list, where each element is calculated lazily. Lets compare a list and a generator that do the same thing - return powers of two:
+
+Python 3.x
+Python 2.x
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+>>> # First, we define a list
+>>> the_list = [2**x for x in range(5)]
+>>>
+>>> # Type check: yes, it's a list
+>>> type(the_list)
+<class 'list'>
+>>>
+>>> # Iterate over items and print them
+>>> for element in the_list:
+...     print(element)
+...
+1
+2
+4
+8
+16
+>>>
+>>> # How about the length?
+>>> len(the_list)
+5
+>>>
+>>> # Ok, now a generator.
+>>> # As easy as list comprehensions, but with '()' instead of '[]':
+>>> the_generator = (x+x for x in range(3))
+>>>
+>>> # Type check: yes, it's a generator
+>>> type(the_generator)
+<class 'generator'>
+>>>
+>>> # Iterate over items and print them
+>>> for element in the_generator:
+...     print(element)
+...
+0
+2
+4
+>>>
+>>> # Everything looks the same, but the length...
+>>> len(the_generator)
+Traceback (most recent call last):
+  File "", line 1, in
+TypeError: object of type 'generator' has no len()
+Iterating over the list and the generator looks completely the same. However, although the generator is iterable, it is not a collection, and thus has no length. Collections (lists, tuples, sets, etc) keep all values in memory and we can access them whenever needed. A generator calculates the values on the fly and forgets them, so it does not have any overview about the own result set.
+
+Generators are especially useful for memory-intensive tasks, where there is no need to keep all of the elements of a memory-heavy list accessible at the same time. Calculating a series of values one-by-one can also be useful in situations where the complete result is never needed, yielding intermediate results to the caller until some requirement is satisfied and further processing stops.
+
+Using the Python "yield" keyword
+A good example is a search task, where typically there is no need to wait for all results to be found. Performing a file-system search, a user would be happier to receive results on-the-fly, rather the wait for a search engine to go through every single file and only afterwards return results. Are there any people who really navigate through all Google search results until the last page?
+
+Since a search functionality cannot be created using list-comprehensions, we are going to define a generator using a function with the yield statement/keyword. The yield instruction should be put into a place where the generator returns an intermediate result to the caller and sleeps until the next invocation occurs. Let's define a generator that would search for some keyword in a huge text file line-by-line.
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+def search(keyword, filename):
+    print('generator started')
+    f = open(filename, 'r')
+    # Looping through the file line by line
+    for line in f:
+        if keyword in line:
+            # If keyword found, return it
+            yield line
+    f.close()
+Now, assuming that my "directory.txt" file contains a huge list of names and phone numbers, lets find someone with "Python" in the name:
+
+
+1
+2
+>>> the_generator = search('Python', 'directory.txt')
+>>> # Nothing happened
+When we call the search function, its body code does not run. The generator function will only return the generator object, acting as a constructor:
+
+Python 3.x
+Python 2.x
+1
+2
+3
+4
+>>> type(search)
+<class 'function'>
+>>> type(the_generator)
+<class 'generator'>
+This is a bit tricky, since everything below def search(keyword, filename): is normally meant to execute after calling it, but not in the case of generators. In fact, there was even a long discussion, suggesting to use "gen", or other keywords to define a generator. However, Guido decided to stick with "def", and that's it. You can read the motivation on PEP-255.
+
+To make the newly-created generator calculate something, we need to access it via the iterator protocol, i.e. call it's next method:
+
+Python 3.x
+Python 2.x
+Python 3.x
+Python 2.x
+Python 3.x
+Python 2.x
+Python 3.x
+Python 2.x
+1
+2
+3
+>>> print(next(the_generator))
+generator started
+Anton Pythonio 111-222-333
+The debug string was printed, and we got the first search result without looking through the whole file. Now let's request the next match:
+
+1
+2
+3
+>>> print(next(the_generator))	 	 
+generator started	 	 
+Fritz Pythonmann 128-256-512	 	 
+The generator resumed on the last yield keyword/statement and went through the loop until it hit the yield keyword/statement again. However, Fritz is still not the right guy. Next, please:
+
+1
+2
+3
+>>> print(next(the_generator))
+generator started
+Guido Pythonista 123-456-789
+Finally, we found him. Now you could call him and say "thank you" for great generators in Python!
+
+More generator details and examples
+
+As you may noticed, the first time the function runs, it will go from the beginning until it reaches the yield keyword/statement, returning the first result to the caller. Then, each other call will resume the generator code where is was left of. If the generator function does not hit the yield keyword/statement anymore, it will raise a StopIteration exception (just like all iterable objects do when they are exhausted/finished).
+
+To run the yield on subsequent calls, the generator can contain a loop or multiple yield statements:
+
+1
+2
+3
+4
+5
+def hold_client(name):
+    yield 'Hello, %s! You will be connected soon' % name
+    yield 'Dear %s, could you please wait a bit.' % name
+    yield 'Sorry %s, we will play a nice music for you!' % name
+    yield '%s, your call is extremely important to us!' % name
+It usually makes more sense to use a generator as a conveyor, chaining functions to work on some sequence efficiently. A good example is buffering: fetching data in large chunks and processing in small chunks:
+
+1
+2
+3
+4
+5
+def buffered_read():
+    while True:
+        buffer = fetch_big_chunk()
+        for small_chunk in buffer:
+            yield small_chunk
+This approach allows the processing function to abstract away from any buffering issues. It can just get the values one by one using the generator that will take care of buffering.
+
+Even simple tasks can be more efficient using the idea of generators. In Python 2.X, a common range() function in Python is often substituted by xrange(), which yields values instead of creating the whole list at once:
+
+1
+2
+3
+4
+>>> # "range" returns a list
+>>> type(range(0, 3))
+<class 'list'>
+>>> # xrange does not exist in Python 3.x
+And finally, a "classical" example of generators: calculate the first N given number of Fibonacci numbers:
+
+1
+2
+3
+4
+5
+6
+7
+8
+def fibonacci(n):
+    curr = 1
+    prev = 0
+    counter = 0
+    while counter < n:
+        yield curr
+        prev, curr = curr, prev + curr
+        counter += 1
+Numbers are calculated until the counter reaches 'n'. This example is so popular because the Fibonacci sequence is infinite, making it problematic to fit in memory.
+
+So far the most practical aspects of Python generators have been described. For more detailed info and an interesting discussion take a look at the Python Enhancement Proposal 255, which discusses the feature of the language in detail.
+
+Happy Pythoning!
+
+To Practice: Try this interactive course on the basics of Lists, Functions, Packages and NumPy in Python. 
+
+
+About The Author
+
+ Anton Caceres
+Anton Caceres
+
+IT geek through and through.
+Related Articles
+
+Python Snippets: How to Generate Random String
+Python’s range() Function Explained
+How to Use Python’s xrange and range
+Introduction to Python Classes (Part 2 of 2)
+Introduction to Python Regular Expressions
+You May Like
+Michelle Obama Snaps : Melania Pushed Her Over The Edge (read more...)
+(Obama's Drama)
+Cornell Student Discovers The Fastest Way To Lose Weight... Today!
+(National Nutrition )
+Warning: Enter only if you are over 18 years old!
+(Play Free!)
+
+
+
+
+
+
+
+
+E-Mail address...
+Subscribe
+
+ Twitter Icon Google Plus Icon Facebook Icon RSS Icon
+Latest Articles
+
+Merge Sort: A Quick Tutorial and Implementation Guide
+Selection Sort: A Quick Tutorial and Implementation Guide
+Insertion Sort: A quick tutorial and implementation guide
+Python Starter Tips: Beginner's Guide to Writing Simple and Effective Code
+Priority Queue: A beginner's guide
+
+Python is a beautiful language.
+
+Close
+
+Home About FAQ Contact Python Central Privacy Policy
+© Copyright 2011 - 2017, Python Central.
+Skip ad
+Romantic Night Playlist
+
+LG Debuts V30 at Europes' Hottest Tech Show, IFA in Berlin
+LG Debuts newest smartphone in Berlin at IFA this week.
+
+Scientists Find Evidence Of 'Secret Life' In Caves Under Antarctica's Glaciers
+A new study led by the Australian National University challenges previous theories about Antarctica's life forms.
+
+This Satellite Is Going To Space For Art, Not Science
+Artist Trevor Paglen plans to launch a satellite into space, but it’s not for any scientific study. His giant inflatable sculpture will orbit Earth purely as art.
+
+The Square - Official Trailer
+This trailer for "The Square" has definitely caught my attention.
+LG Debuts V30 at Europes' Hottest Tech Show, IFA in BerlinArtist Trevor Paglen plans to launch a satellite into space, but it’s not for any scientific study. His giant inflatable sculpture will orbit Earth purely as art.
+
+Rank this Video
+Playvolume00:08/02:04Truvid
+
+
