@@ -1,3 +1,33 @@
+//Knowledgebase and Best practices:
+QA Knowledge base portal:
+https://strongqa.com/qa-portal
+
+//Good Testing Docs Site for reference:’
+https://strongqa.com/qa-portal/testing-docs-templates
+
+
+30 good python tricks:
+http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html
+
+14 Best Python Pandas Features
+http://dataconomy.com/2015/03/14-best-python-pandas-features/
+http://nbviewer.jupyter.org/gist/manujeevanprakash/713d87be97bb35ec7c84
+
+10 Python tricks for Elegant code:
+https://bobbelderbos.com/2016/06/python-tips/
+
+10 neats python tricks, beginners should know:
+https://www.codementor.io/sumit12dec/python-tricks-for-beginners-du107t193
+
+10 top tricks every python developer should know:
+https://www.techworm.net/2016/10/top-python-tips-tricks-every-developer-know.html
+
+Python built-in methods:
+
+https://www.programiz.com/python-programming/methods/built-in
+
+
+
 //WebSocket Server, Client, Unit Test in JAVA:
 
 http://www.adam-bien.com/roller/abien/entry/java_ee_7_accessing_websockets
@@ -10,7 +40,20 @@ http://prasenjitdas235.blogspot.com/2014/03/websocket-load-testing-with-jmeter.h
 Portable Websockets Application & Client Using JAVA:
 https://jfarcand.wordpress.com/2012/05/28/writing-portable-websockets-application-using-java/
 
+//github:
+@@ -70,5 ""100,13 @@ java -XX:""PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize
+ https://gist.github.com/misterbrownlee/3708738
+ to add Jenkins pub key to GitHub under same user and testing for it
+ <U2028>
 
+Elegant way of opening file and process csv:
+with open('stock.csv') as f:
+    f_csv = csv.reader(f)
+    headings = next(f_csv)
+    Row = namedtuple('Row', headings)
+    for r in f_csv:
+        row = Row(*r) # note the star extraction
+        # … process row …
 
 //mySQL
 
