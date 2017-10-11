@@ -71,4 +71,34 @@ https://gist.github.com/misterbrownlee/3708738
 to add Jenkins pub key to GitHub under same user and testing for it
  
 
+//Ubuntu/MAC:
+Parallel Desktop Ubuntu Username/Pwd: (parallels/Verizon1)
+
+To reinstall left panel on desktop:
+Now reinstall it along with ubuntu-desktop simply type and run:
+sudo apt-get update
+ 
+sudo apt-get install --reinstall ubuntu-desktop
+This should automatically install and put Unity back on, you'll be able to see the packages that are going to be installed, if not run:
+sudo apt-get install unity
+1. Add user to a group:
+    1. sudo usermod -a -G groupName userNam
+        1. Set permissions on the directory for the group:
+            1. sudo chgrp -R GroupUser /path/to/the/directory
+            2. sudo chmod -R 770 /path/to/the/directory
+    2.  
+2. List members of a group:
+    1. getent group group name
+3. List groups user belong to:
+    1. groups jenkins
+4. Change user password:
+    1. sudo passwd USERNAME Change file to different owner and group: chown owner-user file chown owner-user:owner-group file chown owner-user:owner-group directory
+    2. chown options owner-user:owner-group file sudo chown jenkins:jenkins jenkins  
+        1. To display all users run following command: compgen -u
+        2.  
+        3. To display all groups run following command: compgen -g 
+    3.  //TEE: command 2>&1 | tee /path/to/logfile //Datestamp: TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S”` TIMESTAMP=`date "+%Y-%m-%d-%H-%M-%S"`
+    4.  echo $TIMESTAMP   http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users 
+    5.  //MacBook Pro: //Add a user to wheel and root/admin: sudo dseditgroup -o edit -a $username_to_add -t user admin
+    6. sudo dseditgroup -o edit -a $username_to_add -t user wheel  //List groups a user belong to: groups nguyjo9 
 
