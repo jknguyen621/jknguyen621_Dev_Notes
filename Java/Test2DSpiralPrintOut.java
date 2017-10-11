@@ -7,6 +7,7 @@ public class Test2DSpiralPrintOut {
 	public static void main(String[] args) {
 	    int[][] array = new int[X_SIZE][Y_SIZE];
 
+        //Print out Visual Matrix
 	    for(int i = 0; i < X_SIZE; i++){
 	        for (int j = 0; j < Y_SIZE; j++){
 	            array[i][j] = i * X_SIZE + (j + 1);
@@ -26,27 +27,30 @@ public class Test2DSpiralPrintOut {
 	    xSize--;  ySize--;      
 
 	    while(k <= xSize && l <= ySize){
+            
+            //print: Down in Y
 	        for(i = l; i <= ySize; ++i) {
 	            System.out.print(matrix[k][i]+ " ");
 	        }           
-	        k++;
+	        k++; //Increase Column count
 
+            //print: Across Right in X
 	        for(i = k; i <= xSize; ++i) {
 	            System.out.print(matrix[i][ySize] + " ");
 	        }
-	        ySize--;
+	        ySize--;  //Decrease Row Count
 
+            //print: Up in Y
 	        for(i = ySize; i >= l; --i) {
 	                System.out.print(matrix[xSize][i] + " ");
 	        }
-	        xSize--;
+	        xSize--;  //Decrease Column count
 
-
+            //print: Across Left in X
 	        for(i = xSize; i >= k; --i) {
 	            System.out.print(matrix[i][l] + " ");
 	        }
-	        l++;
+	        l++;  //Increase Row Count
 	    }
 	}
-
 }
