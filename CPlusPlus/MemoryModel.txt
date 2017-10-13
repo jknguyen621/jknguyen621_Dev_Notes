@@ -60,3 +60,10 @@ Correct Answers:
 6. Pointers (for example, char *arr, int *arr) -------> data or stack, depending on the context. C lets you declare a
    global or a static pointer, in which case the pointer itself would end up in the data segment.
 7. Dynamically allocated space (using malloc and calloc) --------> heap
+
+For Java:
+========
+Classes and all of the data applying to classes (not instance data) is stored in the Permanent Generation section of the heap.
+static member variables are stored in the Permanent Generation area of heap.
+primitive type variables, they will be stored in the PermGen
+
