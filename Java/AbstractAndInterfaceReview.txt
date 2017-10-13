@@ -2,9 +2,10 @@
 
 
 Polymorphism: Program in general rather than specific. Enables us to write programs that process objects that share the same superclass
-			in a class hierarchy as if they are all objects of the superclass; this can simplify programming.  Easily extensible.
-			When a program invokes a method through a superclass variable - at execution time, the correct subclass version of the method is called, based 
-			on the type of reference stored in the superclass variable.  This is done by instantiate an object of the subclass ad 
+			in a class hierarchy as if they are all objects of the superclass; this can simplify programming.  
+                        Easily extensible. When a program invokes a method through a superclass variable - at execution time, the correct 
+                        subclass version of the method is called, based on the type of reference stored in the superclass variable.  
+                        
 
 Rules:
 - A class can inherit from only one superclass, but can implement one or more interfaces (commas between interfaces):
@@ -30,7 +31,8 @@ Abstract:
 - Has keyword abstract in front of the class name. i.e.: public abstract void draw();  //abstract method
 - A class with only one abstract method must be declared as abstract, unless all methods are implemented concretely.
 - Constructors and static methods can’t be declared abstract.
-- ** We can use abstract superclasses to declare variables that an hold references to objects of any concrete class derived from those abstract superclasses.
+- ** We can use abstract superclasses to declare variables that an hold references to objects of any concrete class 
+     derived from those abstract superclasses.
     - Program typically use such variables to manipulate subclass objects polymorphically.
 - References of subclasses can be loaded to an array of elements of the abstract class. 
     - Then iterate through the array to check if element is an ‘instance’ a specific subclass.
@@ -89,8 +91,10 @@ Interfaces:
 - All members of interface must be public.
 - All methods in interfaces are implicitly public abstract  (not concrete defined)
 - All fields are implicitly public, static, and final.
-- To use, a concrete class must specify to implements the interface and must implement all the methods declared in the interface, otherwise, must declare the class itself as abstract.
-- A class can refer to the constants defined in the interface directly by importing the interface as static import. i.e. import static packageName.ClassName.*;
+- To use, a concrete class must specify to implements the interface and must implement all the methods declared in the interface, 
+  otherwise, must declare the class itself as abstract.
+- A class can refer to the constants defined in the interface directly by importing the interface as static import. 
+  i.e. import static packageName.ClassName.*;
 
 ie.: 
 
