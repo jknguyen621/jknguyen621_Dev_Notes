@@ -7,8 +7,6 @@
 #output: return tthe index iwhere it should be insertted.
 
 
-
-
 def findIndex(listIn, indexInput):
 
     #print myDict
@@ -35,7 +33,7 @@ def findIndex(listIn, indexInput):
 #8-4
 ############################################
 
-lst = [1,2,5,7] #- constant (immutable)
+lst = [1,2,5,7] #Input original list 
 
 Index = findIndex(lst, 5)
 print("%d " % Index)
