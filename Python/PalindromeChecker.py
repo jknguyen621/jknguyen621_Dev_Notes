@@ -15,13 +15,17 @@ def isPalindrome(text):
         else:
             print ("No longer a Palindrome \n")
             palindrome = False
+            break
 
     return palindrome
 
 
 
 
-
-print isPalindrome("racecar")
-
-#madam is true
+if __name__ == '__main__':
+    print "%sisPalindrome for 'racecar'%s" % ("*" * 30,"*" * 30)
+    print isPalindrome("racecar")
+    print "%sisPalindrome for 'madam'%s" % ("*" * 30,"*" * 30)
+    print isPalindrome("madam")
+    print "%sisPalindrome for 'disneyland'%s" % ("*" * 30,"*" * 30)
+    print isPalindrome("disneyland")
