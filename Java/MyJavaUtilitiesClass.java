@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.HashMap;
 
 /**
  * 
@@ -75,10 +78,10 @@ public class MyJavaUtilitiesClass {
 			
 			while((line = br.readLine() ) != null)
 			{
-				StringTokenizer tokens = new StringTokenizer(line, delimiter);
-				while(tokens.hasMoreTokens())
+				StringTokenizer st = new StringTokenizer(line, delimiter);
+				while(st.hasMoreTokens())
 				{
-					userProps.put(tokens.toString(), tokens.nextToken());
+					userProps.put(st.toString(), st.nextToken());
 				}
 			}
 			
@@ -94,6 +97,32 @@ public class MyJavaUtilitiesClass {
 		return userProps;
 	}
 	
+    
+    /**
+     *  Illustration of Collection's iteration through a Map/Hashmap/Hashtable
+     *  of map of certain checkboxes, to verify if they are checked.
+     *  Checkbox names are the keys.
+     *  Checked states are in boolean and are the values,
+     **/
+    public boolean verifyCheckBoxChecked(Map<String, Boolean> expectedHT) throws Exception {
+        boolean status = true;
+        
+        Iterator<String> keys = expectedHT.keySet().iterator();
+        String key = "";
+        boolean expected = false;
+        
+        while (keys.hasNext()) {
+            key = (String) keys.next();
+            log("Verifying Checkbox Checked for: " + key, true);
+            System.out.printf("Key is: %s \n", key);
+            expected = (boolean) expectedHT.get(key);
+            assertTrue(verifyChecked(key, expected), "CheckBox is not Checked" + key);
+        }
+        
+        return status;
+    }
+    
+
 	/**
 	 * @NOTE: Key is to use String's method of toCharArray() & use two char[],
 	 * then you can reverse index and copy over.
@@ -416,3 +445,19 @@ public class MyJavaUtilitiesClass {
 
 		}
 }
+
+Input:
+
+
+//Access Control
+private  //has scope of package
+
+//Default access will be accessible only from the classes inside package in which it is defined. Any method in any class which is defined in same package can access given variable in any way.(Via Inheritance or Direct access)
+
+//Public means given variable will be accessible from all the class available in Java world. Any method in any class can access given variable in any way.(Via Inheritance or Direct access)
+
+//Protected means it will be accessible only from the sub classes(Inside / Outside package) (Via Inheritance Only).
+
+//Protected respect class subclass relation while Default doesnít. This is the only difference between these 2 modifier(Protected & Default).
+
+//Private means it will be accessible only from within class. No one can access the given variable from outside class(Not even subclass).
