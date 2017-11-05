@@ -3,6 +3,8 @@
 #BubbleSort in Python
 
 def bubbleSort(inList):
+    #Starting from end of array for number of pass, then decrement towards 0,
+    #while check from front towards back swapping smaller value towards front.
     for passnum in range(len(inList)-1,0,-1):
         for i in range(passnum):
             if inList[i]>inList[i+1]:
