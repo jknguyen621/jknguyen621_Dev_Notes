@@ -1,0 +1,4 @@
+1) 20 Java interview questions on Collections
+
+https://www.javatpoint.com/java-collections-interview-questions
+
