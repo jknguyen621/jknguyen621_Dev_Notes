@@ -1,3 +1,11 @@
+1) Interview Exceptions Questions:
 
 http://www.baeldung.com/java-exceptions-interview-questions
+
+
+2) Exceptions Hiearchary, Checked(should be handled and recoverable) and Unchecked(not recoverable,
+such as null pointer and divide by 0, etc...)
+
+https://www.programcreek.com/2009/02/diagram-for-hierarchy-of-exception-classes/
+
 
