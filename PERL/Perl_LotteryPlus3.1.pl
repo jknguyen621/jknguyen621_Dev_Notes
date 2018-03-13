@@ -93,10 +93,10 @@ my $POW_P = "POW_POW_Number";
 #CUTOFF FILTERS FOR USAGE
 my $SUPER_5_CUTOFF = "130";
 my $SUPER_M_CUTOFF = "52";
-my $MEGA_5_CUTOFF = "60";
-my $MEGA_M_CUTOFF = "18";
-my $POW_5_CUTOFF = "20";
-my $POW_P_CUTOFF = "10";
+my $MEGA_5_CUTOFF = "120";
+my $MEGA_M_CUTOFF = "49";
+my $POW_5_CUTOFF = "25";
+my $POW_P_CUTOFF = "12";
 
 
 my $HFILEOUT = "Sorted_Lottery_Data";                       #Note: WO Extension for now.
