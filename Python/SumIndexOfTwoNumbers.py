@@ -1,0 +1,46 @@
+#!/usr/bin/python
+
+
+def SumIndexOfTwoNumbers(testArray, sum):
+
+
+    for j in range(len(testArray) -1):
+        for k in range(len(testArray) -1):
+            if (testArray[j] + testArray[k]) == sum:
+
+                return j, k
+            else:
+                print ("J and K are: %d, %d", j, k )
+                print ("Sum currently = %d", testArray[j] + testArray[k])
+
+
+if __name__ == '__main__':
+    array1 = [1, 6, 9, 5, 3, 7, 4, 15, 11]
+    array2 = [1, 6, 9, 5, 3, 7, 4, 15, 11]
+    array3 = [1,6,9,5,3,7,4,15,11]
+
+    (a,b) = SumIndexOfTwoNumbers(array1, 13)
+
+    print ("Summary is: %d, %d", a, b)
+
+
+'''
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+#You may assume that each input would have exactly one solution, and you may not use the same element twice.
+#example:
+ 
+#input:
+#array: [1,6,9,5,3,7,4,15,11]
+#sum = 13
+#output = 1, 5 
+#Explanation (6+7 = 13)
+#input:
+#array: [1,6,9,5,3,7,4,15,11]
+#sum = 16 
+#output  = 3, 8 or 0,7
+#Explanation (5+11) or (1+15)
+ 
+#input:
+#array: [1,6,9,5,3,7,4,15,11]
+#sum = 2
+'''
