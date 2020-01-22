@@ -23,3 +23,12 @@ def findDup(str):
 
 
 findDup("todayisnotmybirthdaybutitsgoingalright")
+
+
+def shorterFindDup(a):
+    adict = {}
+    for i in a:
+        if i in adict:
+            return i
+        else:
+            adict[i] = 1   
