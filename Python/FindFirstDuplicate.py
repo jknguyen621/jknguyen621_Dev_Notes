@@ -1,4 +1,4 @@
-#1/usr/bin/python
+#!/usr/bin/python
 
 
 def findDup(str):
@@ -31,4 +31,4 @@ def shorterFindDup(a):
         if i in adict:
             return i
         else:
-            adict[i] = 1   
+            adict[i] = 1
