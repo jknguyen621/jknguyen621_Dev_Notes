@@ -1,8 +1,8 @@
-'''
+"""
 @Author: Jospeh K. Nguyen
 This program will find the error counts per line(example from textfile or logfile),
 and return the proper count for each of the error type.
-'''
+"""
 
 errors = ['cat', 'dog']
 lines = ['abc cat dog', 'bat tab dog']

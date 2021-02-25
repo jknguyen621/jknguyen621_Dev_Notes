@@ -1,5 +1,8 @@
-#!/usr/bin/python
-
+"""
+@Author: Jospeh K. Nguyen
+This program will find the duplicates for each of the charactes in a string and return that character along with the number
+of counts on that duplicate.
+"""
 
 def findDup(str):
 
@@ -21,7 +24,6 @@ def findDup(str):
             print("Duplicate Character is %s, with count as %d: " % (keys, myDict[keys]))
 
 findDup("todayisnotmybirthdaybutitsgoingalright")
-
 
 def shorterFindDup(a):
     adict = {}

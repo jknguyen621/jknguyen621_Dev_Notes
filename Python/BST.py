@@ -1,6 +1,11 @@
-#!/usr/bin/python
+""""
+@Author: Jospeh K. Nguyen
+This program will perform genearte a Binary Search Tree based on insertion and sort in order with proper left and right nodes.
+
 #Taken from: http://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
 # A utility function to search a given key in BST
+"""
+
 def search(root,key):
      
     # Base Cases: root is null or key is present at root
@@ -13,7 +18,6 @@ def search(root,key):
    
     # Key is smaller than root's key
     return search(root.left,key)
-
 
 # Python program to demonstrate insert operation in binary search tree 
  
