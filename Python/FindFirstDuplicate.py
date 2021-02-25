@@ -18,9 +18,7 @@ def findDup(str):
     #Check results:
     for keys in myDict:
         if myDict[keys] > 1:  #Greater than 1 means repeated
-            print("Duplicate Character is Value is: %d\n", keys)
-
-
+            print("Duplicate Character is %s, with count as %d: " % (keys, myDict[keys]))
 
 findDup("todayisnotmybirthdaybutitsgoingalright")
 
