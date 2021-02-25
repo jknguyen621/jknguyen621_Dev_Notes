@@ -7,7 +7,9 @@ import math
 
 def findBaseof2Root(number):
     powerOf2 = False
+    print("\nRoot of 2 for number: %d\n" % number)
     if (math.log(number, 2).is_integer()):
+        print ("To the " + str(math.log(number, 2)) + "rd/th power\n")
         powerOf2 = True
     else:
         powerOf2 = False
