@@ -42,9 +42,6 @@ def search_expression(current_dir, files):
                 print contents
                 print compiled_exp
                 count = len(compiled_exp.findall(contents))
-                #match = compiled_exp.findall(contents)
-                #print match
-                #count = len(match)
                 yield f, count
     except Exception, e:
         raise Exception("Error detected during Search Expression. ERROR: %s" % e.message)
