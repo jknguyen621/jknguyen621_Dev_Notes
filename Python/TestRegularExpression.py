@@ -1,4 +1,12 @@
-#!/usr/bin/python
+"""
+@Authors: Jospeh K. Nguyen & Renato Maschion
+'''
+In this program, we are trying to demonstrate the usage of Python's Regular Expression library(re).
+We are also traversing a directory, looking in each file within testData subdirectory for email address pattern.
+We will then publish report via graph indicating how many occurrences found in each of the files.
+NOTE: Some credits go to Renato Maschion for some of the methods defined.
+'''
+"""
 
 import re
 import os
@@ -6,12 +14,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-'''
-In this program, we are trying to demonstrate the usage of Python's Regular Expression library(re).
-We are also traversing a directory, looking in each file within testData subdirectory for email address pattern.
-We will then publish report via graph indicating how many occurrences found in each of the files.
-NOTE: Some credits go to Renato Maschion for some of the methods defined.
-'''
 
 results = {}
 compiled_exp =''
