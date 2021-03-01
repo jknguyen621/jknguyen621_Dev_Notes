@@ -1,24 +1,23 @@
-from selenium import webdriver 
+"""
+@Author: Jospeh K. Nguyen
+This program will launch Chrome webdriver, load a page, then quit.
+"""
+
+
+from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 import time
 
-browser = webdriver.Chrome() #webdriver.Firefox()    #webdriver.Chrome()
-browser.get("https://www.google.com/") 
+browser = webdriver.Chrome()
+browser.get("https://github.com//rmaschion")
 time.sleep(2)
- 
-search = browser.find_element_by_id("lst-ib").send_keys("github/rmaschion")
-results = browser.find_element_by_id("lst-ib").send_keys(Keys.RETURN)
 
-time.sleep(3)  #Wait for page to load
-bodyText = browser.find_element_by_tag_name("body").text
+'''Find element of python repo and click'''
+element_xpath = "//*[@id='js-pjax-container']/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[3]/div/div/div/a/span"
+browser.find_element_by_xpath(element_xpath).click()
+time.sleep(5)
 
-if "rmaschion" in bodyText:	
-	print "Found proper GitHub Repo!!!\n"
-	print bodyText
-else:
-	print "rmashion Repo not found in Search Return!\n"
-	assert( "rmaschion" in bodyText)
-
+browser.quit()
 
 
 ######################################################################
