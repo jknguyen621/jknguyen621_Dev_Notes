@@ -1,6 +1,11 @@
-#!/usr/bin/python
+"""
+@Author: Joseph K. Nguyen
 
-#QuickSort in Python
+QuickSort.py
+Using sublists of less, equal and greater.  Starting out with a pivot point, then compare each element of the array to pivot.
+If lesser than less.append(), if equals than equal.append(), if its greater than greater.append().
+Then concantenate the list and pass it back into a recurcive calling to the sort again.
+"""
 
 def sort(array=[12,4,5,6,7,3,1,15]):
     less = []
@@ -21,7 +26,6 @@ def sort(array=[12,4,5,6,7,3,1,15]):
     # Note that you want equal ^^^^^ not pivot
     else:  # You need to hande the part at the end of the recursion - when you only have one element in your array, just return the array.
         return array
-
 
 if __name__ == '__main__':
 	testArray = [7,8,9,10,45,23,11,4,2,1,21,16]
