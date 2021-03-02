@@ -1,6 +1,18 @@
-#!/usr/bin/python
+"""
+@Author: Joseph K. Nguyen
 
-#Palindrome program determines if a string has an oppostive
+PalindromeChecker.py
+
+Palindrome program determines if a string has an oppostive(mirror)
+Start off by finding the length and the half way point.
+Set Palindrome flag as False to start.
+Compare the front to the back, stepping up positive in the front and negative in the back.
+While comparing if they are equal.  As long as they are equal til the end, than it must be Palindrome.
+Then set the Palindrome flag to True.  When the front indexed value does not equal the badck indexed value,
+set Palindrome flag to False and break-out.
+
+"""
+
 def isPalindrome(text):
     palindrome = False
     if text == None:
@@ -18,9 +30,6 @@ def isPalindrome(text):
             break
 
     return palindrome
-
-
-
 
 if __name__ == '__main__':
     print "%sisPalindrome for 'racecar'%s" % ("*" * 30,"*" * 30)
