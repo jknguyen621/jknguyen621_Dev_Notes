@@ -21,7 +21,7 @@ if __name__ == '__main__':
     array2 = [1, 6, 9, 5, 3, 7, 4, 15, 11]
     array3 = [1,6,9,5,3,7,4,15,11]
 
-    (a,b) = SumIndexOfTwoNumbers(array2, 7)
+    (a,b) = SumIndexOfTwoNumbers(array2, 1)
 
     print("Summary is: %s, %s" % (a, b))
 
