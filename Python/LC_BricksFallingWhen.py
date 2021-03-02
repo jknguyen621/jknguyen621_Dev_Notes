@@ -1,8 +1,17 @@
+"""
+@Author: Joseph K. Nguyen
+
+#LC_BricksFallingWhen.py
+
+A brick will not drop if and only if it is directly connected to the top of the grid, or at
+least one of its (4-way) adjacent bricks will not drop.
+
+TODO: Debug and figure this out, when i have more time.
+"""
+
 import numpy as np
 
 class Solution(object):
-# A brick will not drop if and only if it is directly connected to the top of the grid, or at      #least one of its (4-way) adjacent bricks will not drop.
-           
 
     def __init__(self, G, H):
         self.grid = G
@@ -50,6 +59,7 @@ class Solution(object):
         return int(np.sum(outBinary))
                      
 #The number of rows and columns in the grid will be in the range [1, 200].        
+
 """
 while True:        
     grid = input("Please input Grid data of your elements in list of array: ") 
@@ -59,29 +69,31 @@ while True:
     break
 """
 
-#import numpy as nm
-#self.grid = np.arange(1, fullSize+1).reshape(fullSize,fullSize)
+
+"""
+import numpy as nm
+self.grid = np.arange(1, fullSize+1).reshape(fullSize,fullSize)
 
 #The list of lists 
 #1
-#grid = [[1,0,0,0],[1,1,1,0]]
-#hits = [[1,0]]
+grid = [[1,0,0,0],[1,1,1,0]]
+hits = [[1,0]]
 
 #2
-#grid = [[1,0,0,0],[1,1,0,0]]
-#hits = [[1,1],[1,0]]
-#rtype = []
+grid = [[1,0,0,0],[1,1,0,0]]
+hits = [[1,1],[1,0]]
+rtype = []
     
-#LoadedGrid = Solution(grid, hits)
+LoadedGrid = Solution(grid, hits)
 
-#print LoadedGrid
+print LoadedGrid
 
-#rtype = LoadedGrid.hitBricks()
-#out = int(np.sum(rtype))
-#print out
+rtype = LoadedGrid.hitBricks()
+out = int(np.sum(rtype))
+print out
 
-#print('\n'.join('{}: {}'.format(*k) for k in enumerate(rtype)))
-
+print('\n'.join('{}: {}'.format(*k) for k in enumerate(rtype)))
+"""
 
 ###########################################################
 def stringToInt2dArray(input):
@@ -92,8 +104,6 @@ def integerListToString(nums, len_of_list=None):
         len_of_list = len(nums)
     print "length is: %d \n" % len_of_list    
     return json.dumps(nums[:len_of_list])
-     
-    
 
 def main():
     import sys
@@ -127,33 +137,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-def stringToInt2dArray(input):
-    return json.loads(input)
-
-def integerListToString(nums, len_of_list=None):
-    if not len_of_list:
-        len_of_list = len(nums)
-    return json.dumps(nums[:len_of_list])
-
-def main():
-    import sys
-    def readlines():
-        for line in sys.stdin:
-            yield line.strip('\n')
-    lines = readlines()
-    while True:
-        try:
-            line = lines.next()
-            grid = stringToInt2dArray(line)
-            line = lines.next()
-            hits = stringToInt2dArray(line)
-            
-            ret = Solution().hitBricks(grid, hits)
-
-            out = integerListToString(ret)
-            print out
-        except StopIteration:
-            break
-
-if __name__ == '__main__':
-    main()
