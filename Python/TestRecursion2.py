@@ -1,6 +1,3 @@
-#!/usr/bin/python
-
-
 """Please solve:
 
 Take two numbers, second number greater than the first, as input say 3 and 7
