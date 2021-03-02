@@ -2,7 +2,8 @@
 @Author: Joseph K. Nguyen
 @Date: 02/22/2021
 
-#Anagram Checker Program
+AnagramChecker.py
+
 Anagram is defined as: when two strings are the same length and have same counts of all characters.
 NOTE: This version doesn't do multiple same characters count.
 """

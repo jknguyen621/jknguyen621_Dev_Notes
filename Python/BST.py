@@ -1,5 +1,8 @@
 """"
 @Author: Jospeh K. Nguyen
+
+BST.py  Binary Search Tree
+
 This program will perform genearte a Binary Search Tree based on insertion and sort in order with proper left and right nodes.
 
 #Taken from: http://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/

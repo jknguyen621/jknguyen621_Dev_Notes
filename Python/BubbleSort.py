@@ -1,8 +1,13 @@
-#!/usr/bin/python
+"""
+@Author: Joseph K. Nguyen
 
-#BubbleSort in Python
+BubbleSort.py
 
-def bubbleSort(inList):
+Program to perform BubbleSort in Python.  Lower values are floated towards the front like a bubble.
+"""
+
+
+def BubbleSort(inList):
     #Starting from end of array for number of pass, then decrement towards 0,
     #while check from front towards back swapping smaller value towards front.
     for passnum in range(len(inList)-1,0,-1):
@@ -16,5 +21,5 @@ def bubbleSort(inList):
 if __name__ == '__main__':
 	myArray = [54,26,93,17,77,31,44,55,20]
         print("Before Sort: %d\n", myArray)
-	sorted = bubbleSort(myArray)
+	sorted = BubbleSort(myArray)
 	print("After Sorted: %d\n", sorted)	

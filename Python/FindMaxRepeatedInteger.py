@@ -1,5 +1,8 @@
 """
 @Author: Jospeh K. Nguyen
+
+FindMaxRepeatedInteger.py
+
 This program will find the max repeated number from a list of number, using numpy data analysis package
 """
 

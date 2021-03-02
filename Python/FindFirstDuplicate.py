@@ -1,5 +1,8 @@
 """
 @Author: Jospeh K. Nguyen
+
+FindFirstDuplicate.py
+
 This program will find the duplicates for each of the charactes in a string and return that character along with the number
 of counts on that duplicate.
 """
