@@ -1,16 +1,19 @@
-#!/user/bin/python/
+"""
+@Author: Joseph K. Nguyen
+@Date: 09/05/2017
 
-#Joseph K. Nguyen
-#09/05/2017
+Given a existing array and a value.  Traverse the array and return the index value,
+where the single given value should be inserted in order to keep the list sorted.
 
-#Input value to insert,
-#output: return tthe index iwhere it should be insertted.
-
+- Input value to insert, and an existing sorted array.
+- output: return the index where it should be insertted.
+"""
 
 def findIndex(listIn, indexInput):
 
     #print myDict
-    #Handle the boundaries first
+    #See if it is not in list at all
+    #Then check for lower and upper boundaries
     if indexInput not in listIn:
         if indexInput < listIn[0]:
             return 0;
