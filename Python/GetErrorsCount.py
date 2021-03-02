@@ -1,14 +1,15 @@
 """
 @Author: Jospeh K. Nguyen
+
+GetErrorsCount.py
+
 This program will find the error counts per line(example from textfile or logfile),
 and return the proper count for each of the error type.
 """
 
 errors = ['cat', 'dog']
 lines = ['abc cat dog', 'bat tab dog']
-
 errDict = {}
-
 
 def errsFind(errDict, errors, lines):
     # Load up a dictionary
@@ -28,7 +29,6 @@ def countErrorsInLogLine(errDict, wordList):
         for word in wordList:
             if err == word:
                 errDict[err] = errDict[err] + 1
-
 
 errsFind(errDict, errors, lines)
 for err in errDict:
